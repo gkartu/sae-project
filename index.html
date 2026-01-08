@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAEPUNK</title>
+<!---    lien vers le css     -->
+   <link rel="stylesheet" href="/style/style.css">
+<!---    lien vers le font pixel     -->
+   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+   <link rel="shortcut icon" href="/image/faviconpng.png">
+
+  <body>  
+    <!----loader video mp4 -->
+        <div id="loader">
+         <video id="loaderVideo" autoplay muted playsinline>
+          <source src="/image/loader-ezgif.com-gif-to-mp4-converter.mp4" type="video/mp4" alt="loader">
+         </video>
+        </div>
+
+<!---fond animer avec 2 gif superposer dessus avec levent click vers le bas  -->
+        <div class="scene">
+         <img class="titre" src="image/saepunk.gif" onclick="Enbas()" alt="titre">
+         <img class="animation" src="image/final.gif" alt="fond">
+         <img class="fleche"src="image/fleche.gif" onclick="Enbas()" alt="fleche"> 
+        </div>
+
+      <!----affichage de sélection de semestre avec 2 bouton-->  
+        <div class="sommaire">
+          <button id="prev">
+           <img src="/image/fleche gauche.gif" alt="précédent" class="btn-gif">
+          </button>
+         <span id="label-semestre" class="font">>Semestre 1</span>
+          <button id="next">
+           <img src="/image/flechedroite.gif" alt="suivant" class="btn-gif">
+          </button>
+        </div>
+     <!----affichage du sommaire en grille pour les sae et sont fond   -->
+         <div class="background">
+          <div id="grille-sae" class="font"></div> 
+         </div>  
+
+<!---transition entre le sommaire et le formulaire-->
+       <div class="container"></div>
+       <div class="container1"></div>
+       <div class="container"></div>
+       <div class="container2"></div>
+       <div class="container"></div>
+ <!---partie formulaire envoie sur mon email -->
+       <section class="contact">
+        <h2 class="font" id="underline"> Contact</h2>
+         <form class="contact-zone" action="https://formsubmit.co/kyliangrare06@gmail.com" method="post">
+          <label class="font">  Nom
+           <input type="text" name="nom" required class="font">
+          </label>
+          <label class="font"> Email
+           <input type="email" name="email" required class="font">
+          </label>
+          <label class="font"> Message
+           <textarea name="message"   rows="5" required class="font"></textarea>
+          </label>
+
+          <input type="hidden" name="_subject" value="Nouveau message depuis le site">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <button type="submit" class="font">Envoyer</button>
+         </form>
+       </section>
+ <!--zone réseaux sociaux---->
+     <footer class="footer">
+  <div class="footer-center">
+    <a href="https://www.instagram.com//gkart_u/" aria-label="instagram" class="social">
+      <img src="image/instalogo.gif" alt="Instagram">
+      <span>Insta</span>
+    </a>
+
+    <a href="https://x.com/gkart_u" aria-label="Twitter" class="social">
+      <img src="image/Twitter.gif" alt="X">
+      <span>X</span>
+    </a>
+
+    <a href="https://github.com/gkartu" aria-label="GitHub" class="social">
+      <img src="image/github.gif" alt="GitHub">
+      <span>GitHub</span>
+    </a>
+
+    <a href="https://www.youtube.com/@gkart_u" aria-label="youtube" class="social">
+      <img src="image/youtube.gif" alt="YouTube">
+      <span>YouTube</span>
+    </a>
+
+    <a href="https://www.linkedin.com/in/kylian-grare-0734ab348/" aria-label="linkedin" class="social">
+      <img src="image/linkedin.gif" alt="LinkedIn">
+      <span>LinkedIn</span>
+    </a>
+  </div>
+        <br>
+        <hr>
+        <br>
+       <div class="footer-container">
+        <p class="font" >Tous droits réservés 
+          <br><br>By using this website,
+          <br>you agree to the 
+          <a href="">terms of service.</a> <br><br>
+          © 2025 — Grare Kylian</p>
+      </footer>
+  <script src="js/dataSAE.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

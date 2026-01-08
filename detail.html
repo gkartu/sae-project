@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Détail SAE</title>
+
+  <link rel="stylesheet" href="/style/detail.css">
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+   <link rel="shortcut icon" href="/image/faviconpng.png">
+</head>
+
+<body>
+  <div id="loader">
+         <video id="loaderVideo" autoplay muted playsinline>
+          <source src="/image/loader2 (2).mp4" type="video/mp4" alt="loader">
+         </video>
+  </div>
+  <div id="wrap">
+   <div id="item_wrap" tabindex="0">
+    <img src="/image/fleur.gif" class="layer fleur" >
+    <img src="/image/arbre.gif" class="layer arbre" > 
+    <img src="/image/lac.gif" class="layer lac" >
+    <img src="/image/ciel.gif"class="layer ciel" > 
+    <img src ="/image/fonddetail1.png" class="layer fond" >
+
+     <div id="sae" class="font"></div>
+     <div id="titre" class="font"></div>
+     <div id="description" class="font"></div>
+     <div id ="compétences" class="font"></div>
+     <div id="AC" class="font"></div>
+     <div id="ressources" class="font"></div>
+     <div id="semestre" class="font"></div>
+   </div>
+  </div>
+ <div class="cta">
+   <a href="index.html" > <button>HOME PAGE</button></a>
+  <div class="fichier">
+   <a id="pdfBtn"href="#" target="_blank" class="font"> pdf</a>
+ </div>
+ <div class="leaf-layer"></div>
+
+ <script src= "/js/dataSAE.js"></script>
+ <script>
+    
+    // lis paramètres URL
+    const params = new URLSearchParams(window.location.search);
+
+    //  recupere valeur ?sae=
+    const saeNumber = params.get("sae");
+    
+    //  change contenu page
+    
+    document.getElementById("sae").innerHTML = "SAE " + saeNumber;
+     
+    const pdfBtn = document.getElementById("pdfBtn");
+
+    // exemple : fichiers nommés sae1.pdf, sae2.pdf, etc.
+    if (saeNumber) {
+         pdfBtn.href = `pdf/sae${saeNumber}.pdf`;
+    } else {
+         pdfBtn.href = "#";
+         pdfBtn.innerHTML = "<button>SAE non définie</button>";
+    }
+
+    var titre = document.getElementById("titre");
+    titre.innerHTML = SAE["SAE" + saeNumber]["titre"]
+    
+    var description = document.getElementById("description");
+    description.innerHTML = SAE["SAE" + saeNumber]["description"]
+    
+    SAE["SAE" + saeNumber]["compétences"].forEach((e) => {
+    document.getElementById("compétences").innerHTML += e + " "
+    });
+
+    const AC = SAE["SAE" + saeNumber]["AC"];
+    // Transforme l'objet en tableau de clés
+    Object.keys(AC).forEach((key) => {
+      document.getElementById("AC").innerHTML += key + " : " + AC[key] + "<br>";
+    });
+    const ressources = SAE["SAE" + saeNumber]["ressources"];
+    Object.keys(ressources).forEach((key) => {
+       document.getElementById("ressources").innerHTML +=key + " : " + ressources[key] + "<br>";
+    });
+  
+    document.getElementById("semestre").innerHTML = "Semestre : " + SAE["SAE" + saeNumber]["semestre"];
+   
+ 
+
+
+    const skewItemContainer = document.querySelector("#wrap");
+    const skewItem = document.querySelector("#item_wrap").
+    getBoundingClientRect();
+    const imageCenterX = skewItem. left + skewItem.witdh /2;
+    const imageCenterY = skewItem. top + skewItem.height /2;
+    skewItemContainer.addEventListener("mousemove", function(e)  {
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+
+    const xCalc = (clientX - imageCenterX) * 0.001;
+    const yCalc = (clientY - imageCenterY) * 0.001;
+    skewItemContainer.style.setProperty("--x-translate",`${xCalc}
+    `);
+    skewItemContainer.style.setProperty("--y-translate",`${yCalc}
+    `);
+    console.log(xCalc);
+
+    });
+
+
+   const layer = document.querySelector(".leaf-layer");
+
+   document.addEventListener("mousemove", (e)=>{
+   if(Math.random() > 0.7) return; // pas trop de feuilles
+
+   const leaf = document.createElement("div");
+   leaf.className = "leaf";
+
+   leaf.style.left = e.clientX + "px";
+   leaf.style.top = e.clientY + "px";
+
+   leaf.style.setProperty("--x", Math.random());
+
+   layer.appendChild(leaf);
+
+   setTimeout(()=> leaf.remove(), 250);
+   });
+
+
+   
+const loader = document.getElementById("loader");
+const video = document.getElementById("loaderVideo");
+const content = document.getElementById("content");
+
+video.addEventListener("ended", () => {
+  loader.style.display = "none";
+  content.style.display = "block"; 
+});
+
+ </script>
+ 
+</body>
+</html>
