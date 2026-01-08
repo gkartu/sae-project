@@ -1,0 +1,410 @@
+* {
+    padding: 0; /*pas touche */
+    margin: 0;  
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ /*partie de video chargement
+ centrage de la video et sa taille */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+/* Vidéo du loader je doit corriger */
+#loader video {      
+   width: 100%;
+   height: 100%;
+
+  object-position: top;
+  object-fit: cover;  
+  background: transparent;
+  z-index: 2;
+}
+
+/* en mode pixel dans la da*/
+.font {
+  font-family: 'Press Start 2P', monospace;
+}
+#font{
+  font-family: 'Press Start 2P', monospace;
+}
+
+body {
+/* permet davoir le png du cursor sur la page quand on est sur rien */
+  cursor: url("/image/cursor2-export.png")16 16, default;
+  background: rgb(0, 0, 0) 
+}
+
+/* scroll bar a voir ce que sa fait*/
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+   border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 0;
+  
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+  border-radius: 0; 
+}
+
+/* couleur de la scrollbar*/
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e885d9 #000000;
+  
+}
+/* la modif de 3 cursor */
+/* pour tout label mettre telle img pour le cursor 16 16 c la taille px */
+label{
+   cursor: url("/image/cursor2-export.png")16 16, default;
+}
+/* la meme pour les input ou textera  */
+input,
+textarea,
+[contenteditable="true"] {      /* Attribut HTML qui rend n’importe quel élément éditable  */   
+  cursor:url("/image/cursor3.png") 16 16, pointer;
+}
+/* lien et bouton de class clikable */
+a,
+button,
+
+.clickable {
+  cursor: url("/image/cursor-export.png") 16 16, pointer;
+ 
+}
+/*  zone principal accueil  */
+.scene{
+    position: relative;
+    max-width:fit-content ;
+    width: 100%;
+    margin: auto;
+    aspect-ratio: 16 / 9;
+}
+.animation{
+    display: block;
+    width: 100%; 
+}
+.titre{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 10%;
+    right: 25%;
+    width: 55%;
+    cursor: url("/image/cursor-export.png")16 16, pointer;
+    z-index: 1;
+}
+.fleche{
+     position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 27%;
+    right: 20%;
+    width: 55%;
+    cursor: url("/image/cursor-export.png")16 16, pointer;
+    z-index: 1;
+}
+
+/*  haut de sommaire zone de semestre */
+.sommaire{
+display: flex;
+justify-content: center;
+padding: 0.8%;
+gap: 10px;
+width: 100%;
+height: 4%;
+
+background-image: url("/image/de.gif");
+background-repeat: no-repeat;
+background-position: center;
+background-size: clamp(3rem, 100vw, 100rem);
+
+}
+button{
+background: none;
+border:none;
+cursor:url("/image/cursor-export.png") 16 16, pointer;
+}
+.btn-gif {
+  width: clamp(3rem, 1vw, 10rem);
+  height: clamp(3rem, 1vw, 10rem);
+   max-width: 100%;
+  height: auto;
+ display: flex;
+}
+
+
+/* le span semestre custom en dégrader de couleur  */
+#label-semestre{
+  background: linear-gradient(to top, red, yellow,rgb(122, 216, 122),rgb(113, 231, 255));
+  background-clip: text;              
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(1rem, 0.5vw, 1rem);
+}
+.background{
+ background-image: url("/image/te2-export.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  background-image: url("/image/te2-export.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  width: 100%;
+  min-height: 40vh;
+ 
+}
+/* zone des boutons sae et le fond*/
+#grille-sae {
+display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: min(90%, 900px);
+  padding: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*  les bouton sae  */
+.zone {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+ width: clamp(1rem, 10vw, 5rem);
+ height:clamp(1rem, 5vw, 5rem); ;
+
+
+  text-decoration: none;
+  color: rgb(255, 0, 195);
+  font-weight: bold;
+  font-size:clamp(0.5rem,1vw,10rem) ;
+
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20%;
+  transition: transform 0.2s, background-color 0.2s;
+  
+  background-image:url("/image/fondbutton.gif");
+  background-repeat: no-repeat;
+  background-image: contain;
+  
+}
+.zone:hover {
+  transform: scale(1.05);
+}
+
+/*  zone de transition simple  */
+.container{
+  width: 100%;
+  height: 5vh;
+  background-color: rgb(0, 0, 0);
+}
+.container1{
+  width: 100%;
+  height: 5px;
+  background-color: rgb(104, 230, 255);
+  box-shadow: 0 0 10px rgb(90, 232, 240);
+  animation: glow 3s infinite alternate;
+}
+/*  léger effet de briance  */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 15px rgb(111, 220, 237), 0 0 25px rgb(113, 231, 249);
+  }
+  100% {
+    box-shadow: 0 0 15px rgb(255, 115, 255), 0 0 30px rgb(255, 103, 255);
+  }
+}
+.container2{
+  width: 100%;
+  height: 5px;
+  background-color: rgb(255, 104, 212);
+  box-shadow: 0 0 10px rgb(90, 232, 240);
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  0% {
+  box-shadow: 0 0 15px rgb(111, 220, 237), 0 0 25px rgb(113, 231, 249);
+  }
+  100% {
+  box-shadow: 0 0 15px rgb(255, 115, 255), 0 0 30px rgb(255, 103, 255);
+  }
+}
+/*  zone de formulaire */
+.contact {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+}
+.contact h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+#underline {
+  position: relative;
+  text-decoration: none;
+}
+#underline::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: -4px;
+  width: 50%;
+  height: 2px;
+  background-color: #ff6dc0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+#underline:hover::after {
+  transform: scaleX(1);
+  height: 3px;
+  image-rendering: pixelated;
+}
+.contact-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-zone label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color : #ffffff;
+}
+.contact-zone input,
+.contact-zone textarea {
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px solid #333;
+  background: #e9a4df;
+  color: white;
+}
+.contact-zone input:focus,
+.contact-zone textarea:focus {
+  outline: none;
+  border-color: #4ed9ff;
+}
+.contact-zone button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #fd49b5;
+  color: white;
+  cursor: url("/image/cursor-export.png");
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.contact-zone button:hover {
+  background: #71d4f8;
+}
+
+.footer {
+  color: #aaa;
+  padding: 20px 10px;
+  font-size: 14px;
+  width: 100%;
+}
+.footer-center {
+  text-align: center;
+  background-color: #e9a4df;
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  height: 20vh; 
+  gap: 40px;
+}
+.footer {
+  width: 100%;
+}
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 30px 10px;
+  background-color: #e9a4df;
+  flex-wrap: wrap; /* IMPORTANT */
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fd49b5;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+}
+
+.social img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.social:hover img {
+  transform: translateY(-8px);
+}
+
+.social:hover {
+  color: rgb(139, 32, 163);
+}
+
+.footer-container {
+  width: 100%;
+  height: 10VH;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #000000;
+  color: #7e7e7e;
+  flex-wrap: wrap; 
+  
+}
+
+
+
+

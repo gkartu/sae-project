@@ -1,0 +1,232 @@
+*{
+  margin: 0;
+}
+html,body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+}
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: black;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Vidéo du loader je doit corriger */
+#loader video {      
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: cover;   /* remplit l’écran 1920x1080 */
+  object-position: center;
+
+  background: black;
+}
+
+#wrap{
+  background: rgb(10, 54, 66);
+  width: 100%;
+  height: 100%;
+   cursor: url("/image/cursordetail1.png")16 16, default;
+  --x-translate: 0;
+  --y-translate: 0; 
+}
+#item_wrap{
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  transform-style:preserve-3d ;
+}
+.layer{
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 16 / 9;
+  background-position: center;
+  position: absolute;
+  backface-visibility: hidden;
+  image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
+}
+
+#wrap:hover #item_wrap{
+  transform: rotate3d(0,1,0, calc(var(--x-translate,0)*1deg)) rotate3d(1,0,0, calc(var(--y-translate,0)*1deg));
+}
+.fleur{
+  background-repeat: no-repeat;
+  transform: translateZ(1000px);
+}
+.lac{ 
+  background-repeat: no-repeat;
+  transform: translateZ(100px) scale(1);
+}
+.arbre{
+  background-repeat: no-repeat;
+  transform: translateZ(600px) scale(1);
+}
+.ciel{ 
+  background-repeat: no-repeat;
+  transform: translateZ(100px) scale(1);
+}
+.fond{
+  background-repeat: no-repeat;
+  transform: translateZ(10px) scale(1);
+}
+#sae.font{
+  color: rgba(84, 68, 83, 0.75);
+  text-shadow:
+    0 2px 0 rgba(225, 62, 198, 0.6),
+    0 4px 6px rgba(255, 62, 216, 0.8);
+  padding-top: 2%;
+  text-align: left;
+  font-size: clamp(0.2rem, 2vw, 2rem);
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: left;
+  cursor: url("/image/cursordetail2.png")16 16, default;
+  transform: translateZ(1000px) scale(1);
+
+}
+#titre {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow:
+    0 2px 0 rgba(225, 62, 198, 0.6),
+    0 4px 6px rgba(255, 62, 216, 0.8);
+  font-size: clamp(0.2rem, 2vw, 1rem);
+   transform: translateZ(1000px) scale(1);
+   padding: 5px; 
+   cursor: url("/image/cursordetail2.png")16 16, default;  
+}
+#description {
+  padding: 5px;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow:
+    0 2px 0 rgba(225, 62, 198, 0.6),
+    0 4px 6px rgba(255, 62, 216, 0.8);
+  font-size: clamp(0.2rem, 1vw, 0.8rem);
+  line-height: 1;
+  transform: translateZ(1000px) scale(1);
+
+    
+}
+
+#compétences{
+  color: rgba(230, 245, 255, 0.75);
+  text-shadow:
+    0 2px 0 rgba(225, 62, 198, 0.6),
+    0 4px 6px rgba(255, 62, 216, 0.8);
+  font-size: clamp(0.2rem, 1vw, 1.3rem);
+  transform: translateZ(1100px) scale(1);
+  text-align: center;
+  padding: 5px;
+}
+#AC{
+  color: rgba(174, 211, 227, 0.75);
+  text-shadow:
+    0 2px 0 rgba(216, 120, 200, 0.6),
+    0 4px 6px rgba(255, 62, 216, 0.8);
+  font-size: clamp(0.2rem, 1vw, 0.8rem);
+  transform: translateZ(1100px) scale(1);
+  padding: 10px;
+}
+#ressources{
+  color: rgba(116, 178, 236, 0.75);
+  text-shadow:
+    0 2px 0 rgba(53, 118, 146, 0.6),
+    0 4px 6px rgba(159, 24, 255, 0.8);
+  font-size: clamp(0.2rem, 1vw, 0.8rem);
+  transform: translateZ(1100px) scale(1);
+  padding: 10px;
+}
+#semestre {
+  color: rgba(182, 222, 245, 0.75);
+  text-shadow:
+    0 2px 0 rgba(37, 34, 55, 0.6),
+    0 4px 6px rgba(255, 62, 216, 0.8);
+  font-size: clamp(0.2rem, 1vw, 0.5rem);
+  transform: translateZ(1000px) scale(1);
+  text-align: right;
+  padding: 2px; 
+}
+.font {
+  font-family: 'Press Start 2P', monospace;
+}
+.cta{
+  position: absolute;
+  z-index: 2;
+  bottom: 2%;
+  right: 2%;
+  cursor: url("/image/cursordetail3.png") 16 16, pointer;
+}
+.cta button{
+  cursor: pointer;
+   background: linear-gradient(to top, red, yellow,rgb(122, 216, 122),rgb(113, 231, 255));
+   background-clip: text;      
+  font-family: 'Press Start 2P', monospace;
+  -webkit-text-fill-color: transparent;
+  cursor: url("/image/cursordetail3.png") 16 16, pointer;
+}
+.cta a:hover{
+  background-color: rgb(49, 29, 74);
+  transition: ease 0.3s;
+  cursor: url("/image/cursordetail3.png") 16 16, pointer;
+}
+.fichier{
+  position: absolute;
+  z-index: 2;
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+}
+.fichier a{
+  cursor: pointer;
+  background: linear-gradient(to top, red, yellow,rgb(122, 216, 122),rgb(113, 231, 255));
+  background-clip: text;              /* pour calmer le validateur */
+  -webkit-background-clip: text;      /* la vraie qui fonctionne */
+  font-family: 'Press Start 2P', monospace;
+  -webkit-text-fill-color: transparent;
+  cursor: url("/image/cursordetail3.png") 16 16, pointer;
+}
+
+
+.leaf-layer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.leaf{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: url("/image/feuille.gif") no-repeat center / contain;
+  animation: leaf-fall 2.5s ease-out forwards;
+}
+@keyframes leaf-fall{
+  0%{
+  transform: translate(0,0) rotate(0deg);
+  opacity: 1;
+  }
+  100%{
+  transform: translate(
+  calc(-50px + 100px * var(--x)),
+  150px
+  ) rotate(180deg);
+  opacity: 0;
+  }
+}
+
+ 
