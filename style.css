@@ -43,7 +43,7 @@
 
 body {
 /* permet davoir le png du cursor sur la page quand on est sur rien */
-  cursor: url("/image/cursor2-export.png")16 16, default;
+  cursor: url("cursor2-export.png")16 16, default;
   background: rgb(0, 0, 0) 
 }
 
@@ -79,20 +79,20 @@ body {
 /* la modif de 3 cursor */
 /* pour tout label mettre telle img pour le cursor 16 16 c la taille px */
 label{
-   cursor: url("/image/cursor2-export.png")16 16, default;
+   cursor: url("cursor2-export.png")16 16, default;
 }
 /* la meme pour les input ou textera  */
 input,
 textarea,
 [contenteditable="true"] {      /* Attribut HTML qui rend n’importe quel élément éditable  */   
-  cursor:url("/image/cursor3.png") 16 16, pointer;
+  cursor:url("cursor3.png") 16 16, pointer;
 }
 /* lien et bouton de class clikable */
 a,
 button,
 
 .clickable {
-  cursor: url("/image/cursor-export.png") 16 16, pointer;
+  cursor: url("cursor-export.png") 16 16, pointer;
  
 }
 /*  zone principal accueil  */
@@ -114,7 +114,7 @@ button,
     top: 10%;
     right: 25%;
     width: 55%;
-    cursor: url("/image/cursor-export.png")16 16, pointer;
+    cursor: url("cursor-export.png")16 16, pointer;
     z-index: 1;
 }
 .fleche{
@@ -124,7 +124,7 @@ button,
     top: 27%;
     right: 20%;
     width: 55%;
-    cursor: url("/image/cursor-export.png")16 16, pointer;
+    cursor: url("cursor-export.png")16 16, pointer;
     z-index: 1;
 }
 
@@ -137,7 +137,7 @@ gap: 10px;
 width: 100%;
 height: 4%;
 
-background-image: url("/image/de.gif");
+background-image: url("de.gif");
 background-repeat: no-repeat;
 background-position: center;
 background-size: clamp(3rem, 100vw, 100rem);
@@ -146,7 +146,7 @@ background-size: clamp(3rem, 100vw, 100rem);
 button{
 background: none;
 border:none;
-cursor:url("/image/cursor-export.png") 16 16, pointer;
+cursor:url("cursor-export.png") 16 16, pointer;
 }
 .btn-gif {
   width: clamp(3rem, 1vw, 10rem);
@@ -165,12 +165,12 @@ cursor:url("/image/cursor-export.png") 16 16, pointer;
   font-size: clamp(1rem, 0.5vw, 1rem);
 }
 .background{
- background-image: url("/image/te2-export.png");
+ background-image: url("te2-export.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 
-  background-image: url("/image/te2-export.png");
+  background-image: url("te2-export.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -211,7 +211,7 @@ display: grid;
   border-radius: 20%;
   transition: transform 0.2s, background-color 0.2s;
   
-  background-image:url("/image/fondbutton.gif");
+  background-image:url("fondbutton.gif");
   background-repeat: no-repeat;
   background-image: contain;
   
@@ -326,7 +326,7 @@ display: grid;
   border-radius: 8px;
   background: #fd49b5;
   color: white;
-  cursor: url("/image/cursor-export.png");
+  cursor: url("cursor-export.png");
   font-weight: bold;
   transition: background 0.3s;
 }
@@ -404,6 +404,7 @@ display: grid;
   flex-wrap: wrap; 
   
 }
+
 
 
 
